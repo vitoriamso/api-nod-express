@@ -3,7 +3,10 @@ import { selectUsuarios, selectUsuario, insertUsuario } from "./bd.js";
 import dotenv from "dotenv";
 import express from "express";      // Requisição do pacote do express
 const app = express();              // Instancia o Express
-const port = 3000;                  // Define a porta
+const port = 3000;        
+
+dotenv.config();
+
 // endpoint ou porta
 app.use(express.json());
 app.get("/", (req, res) => {        // Cria a rota da raiz do projeto
@@ -13,12 +16,6 @@ app.get("/", (req, res) => {        // Cria a rota da raiz do projeto
   console.log("Rota / solicitada");
 });
 
-app.listen(port, () => {            // Um socket para "escutar" as requisições
-  console.log(`Serviço escutando na porta:  ${port}`);
-});
-
-
-dotenv.config();
 app.get("/usuarios", async (req, res) => {
   console.log("Rota GET/usuarios solicitada");
   try {
@@ -49,4 +46,8 @@ app.post("/usuario", async (req, res) => {
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message || "Erro!" });
   }
+});
+
+app.listen(port, () => {            // Um socket para "escutar" as requisições
+  console.log(`Serviço escutando na porta:  ${port}`);
 });
