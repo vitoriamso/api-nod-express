@@ -12,8 +12,6 @@ async function connect() {
     const res = await client.query("SELECT * FROM usuario");
     return res.rows;
   }
-  export { selectUsuarios };
-
 async function selectUsuario(id) {
   const client = await connect();
   const query = "SELECT * FROM usuario WHERE id = $1";
@@ -21,8 +19,6 @@ async function selectUsuario(id) {
   const res = await client.query(query, usuario);
   return res.rows;
 }
-export { selectUsuarios, selectUsuario };
-
 async function insertUsuario(data) {
   const client = await connect();
   const query = "INSERT INTO usuario (nome,senha,email) VALUES ($1,$2,$3) ";
