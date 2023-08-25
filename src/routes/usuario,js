@@ -1,6 +1,7 @@
 
 
-import { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario } from "./src/db/index.js";
+import { Router } from "express";
+import { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario } from "./bd.js";
 import dotenv from "dotenv";
 import express from "express";      // Requisição do pacote do express
 const app = express();              // Instancia o Express
@@ -10,9 +11,9 @@ dotenv.config();
 
 // endpoint ou porta
 app.use(express.json());
-app.get("/", (req, res) => {        // Cria a rota da raiz do projeto
+app.get("/", (req, res) => {     // Cria a rota da raiz do projeto
   res.json({
-    nome: "Maria Vitória Oliveira Santos",      // Substitua pelo seu nome
+    nome: "Maria Vitória Oliveira Santos",     
   });
   console.log("Rota / solicitada");
 });
