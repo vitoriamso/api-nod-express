@@ -13,7 +13,7 @@ app.use(roteadorUsuario);
 
 app.get("/", (req, res) => {
   res.json({
-    message: "API para CRUD usuario: link_gitgub",
+    nome: "Maria Vitória Oliveira Santos",
   });
 });
 
