@@ -46,7 +46,7 @@ async function autenticarUsuario(email, senha) {
   return res.rows[0];
 }
 
-export { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario };
+export { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario, };
 
 
 
